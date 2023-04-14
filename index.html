@@ -3,7 +3,9 @@
 <head>
 	<title>ClinicaMedico</title>
 	<meta charset="utf-8">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+	<link rel="icon" href="./images/icon.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
 	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 </head>
@@ -12,8 +14,13 @@
 
 	<header>
 			<div class="menu">
-				<a  href="#" id="link1" class="active" >Médicos</a>
-				<a  href="#" id="link2" >Clinicas</a>
+				<div id="logo">
+					<h2>Clínicas Médicas</h2>
+				</div>
+				<div id="links">
+					<button id="link1" class="active" >Médicos</button>
+					<button id="link2" >Clínicas</button>
+				</div>
 			</div><!--menu-->
 
 			<div class="clear"></div>
@@ -25,7 +32,7 @@
 			<div id="headerSections">
 
 				<h2>Médicos Disponíveis</h2>
-				<a class="new" href="#">Novo Médico</a>
+				<button id="abrir-modal-novo-medico" class="new">Novo Médico</button>
 
 			</div><!--headerSections-->
 
@@ -33,88 +40,53 @@
 
 			<div class="table">
 				<div id="top-table">
-					<p>Código</p>
 					<p>Nome</p>
-					<p>Endereço</p>
+					<p>Gênero</p>
 					<p>Email</p>
 					<p>Telefone</p>
+					<p>Data de Entrada</p>
 					<p></p>
 				</div>
 				<div id="infos-table">
 
 					<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
 					<div class="info-line">
-						<p>10001</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
+						<p>Rodrigo</p>
+						<p>Masculino</p>
+						<p>rodrigo@gmail.com</p>
 						<p>7305477760</p>
+						<p>10/01/2001</p>
 						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<!--Colocar nesse onClick a função pra remover do banco, passando o código (id)-->
-							<a class="icon" href="#" onclick=""><i class="icon-trash"></i></a>
+							<button class="icon"><i class="icon-pencil"></i></button>
+							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
 
 					<div class="info-line">
-						<p>10001</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
+						<p>Rodrigo</p>
+						<p>Masculino</p>
+						<p>rodrigo@gmail.com</p>
 						<p>7305477760</p>
+						<p>10/01/2001</p>
 						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<a class="icon" href="#"><i class="icon-trash"></i></a>
+							<button class="icon"><i class="icon-pencil"></i></button>
+							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
+				
 
 					<div class="info-line">
-						<p>10001</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
+						<p>Rodrigo</p>
+						<p>Masculino</p>
+						<p>rodrigo@gmail.com</p>
 						<p>7305477760</p>
+						<p>10/01/2001</p>
 						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<a class="icon" href="#"><i class="icon-trash"></i></a>
+							<button class="icon"><i class="icon-pencil"></i></button>
+							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
-
-					<div class="info-line">
-						<p>10001</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
-						<p>7305477760</p>
-						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<a class="icon" href="#"><i class="icon-trash"></i></a>
-						</div><!--icons-->
-					</div><!--info-line-->
-
-					<div class="info-line">
-						<p>10001</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
-						<p>7305477760</p>
-						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<a class="icon" href="#"><i class="icon-trash"></i></a>
-						</div><!--icons-->
-					</div><!--info-line-->
-
-					<div class="info-line">
-						<p>10001</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
-						<p>7305477760</p>
-						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<a class="icon" href="#"><i class="icon-trash"></i></a>
-						</div><!--icons-->
-					</div><!--info-line-->
+					
 
 				</div><!--infos-table-->
 			</div><!--table-->
@@ -128,7 +100,7 @@
 			<div id="headerSections">
 
 				<h2>Clínicas Disponíveis</h2>
-				<a class="new" href="#">Nova Clínica</a>
+				<button id="abrir-modal-nova-clinica" class="new">Nova Clínica</button>
 
 			</div><!--headerSections-->
 
@@ -146,30 +118,91 @@
 				<div id="infos-table">
 
 					<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
-					<div class="info-line">
+					<div class="info-line" onclick="toggleDropdown(this)">
 						<p>10001</p>
 						<p>Clinical</p>
 						<p>21st Martins</p>
 						<p>Clinical@gmail.com</p>
 						<p>7305477760</p>
 						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<!--Colocar nesse onClick a função pra remover do banco, passando o código (id)-->
-							<a class="icon" href="#" onclick=""><i class="icon-trash"></i></a>
+							<button class="icon"><i class="icon-pencil"></i></button>
+							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
+					<div class="dropdown-content">
+						<div class="info-medicos">
+							<p class="title">Médicos Cadastrados</p>
+							<div class="table-info-medicos">
+								<div id="top-table-info-medicos">
+									<p>Nome</p>
+									<p>Email</p>
+									<p>Telefone</p>
+								</div>
+							
+								<div class="info-line-medicos">
+									<p>Rodrigo</p>
+									<p>rodrigo@gmail.com</p>
+									<p>7305477760</p>
+								</div>
 
-					<div class="info-line">
-						<p>10001</p>
+								<div class="info-line-medicos">
+									<p>Rodrigo</p>
+									<p>rodrigo@gmail.com</p>
+									<p>7305477760</p>
+								</div>
+
+								<div class="info-line-medicos">
+									<p>Rodrigo</p>
+									<p>rodrigo@gmail.com</p>
+									<p>7305477760</p>
+								</div>
+							</div><!--table-info-medicos-->
+
+						</div><!--info-medicos-->
+					</div><!--dropdown-content-->
+					
+					<div class="info-line" onclick="toggleDropdown(this)">
+						<p>10002</p>
 						<p>Clinical</p>
 						<p>21st Martins</p>
 						<p>Clinical@gmail.com</p>
 						<p>7305477760</p>
 						<div id="icons">
-							<a class="icon" href="#"><i class="icon-pencil"></i></a>
-							<a class="icon" href="#"><i class="icon-trash"></i></a>
+							<button class="icon"><i class="icon-pencil"></i></button>
+							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
+					<div class="dropdown-content">
+						<div class="info-medicos">
+							<p class="title">Médicos Cadastrados</p>
+							<div class="table-info-medicos">
+								<div id="top-table-info-medicos">
+									<p>Nome</p>
+									<p>Email</p>
+									<p>Telefone</p>
+								</div>
+							
+								<div class="info-line-medicos">
+									<p>Rodrigo</p>
+									<p>rodrigo@gmail.com</p>
+									<p>7305477760</p>
+								</div>
+
+								<div class="info-line-medicos">
+									<p>Rodrigo</p>
+									<p>rodrigo@gmail.com</p>
+									<p>7305477760</p>
+								</div>
+
+								<div class="info-line-medicos">
+									<p>Rodrigo</p>
+									<p>rodrigo@gmail.com</p>
+									<p>7305477760</p>
+								</div>
+							</div><!--table-info-medicos-->
+
+						</div><!--info-medicos-->
+					</div><!--dropdown-content-->
 
 				</div><!--infos-table-->
 			</div><!--table-->
@@ -177,40 +210,111 @@
 		</div> <!--Sections-->
 	</section> <!--Seção-->
 
+	<!--MODAIS-->
+	<div id="novo-medico" class="modal">
+		<div class="modal-conteudo">
+		  <h1>Adicione um Novo Médico</h1>
+		  <button id="fechar-modal-novo-medico" class="fechar-modal">X</button>
+
+
+		  <form>
+			<div class="campo-formulario">
+			  <label for="nome">Nome</label>
+			  <div class="icone-input">
+				<input type="text" id="nome" name="nome" placeholder="ex: Rodrigo">
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+			  <label for="genero">Gênero</label>
+			  <div class="icone-input">
+				<select id="genero" name="genero">
+				  <option value="">Selecione</option>
+				  <option value="feminino">Feminino</option>
+				  <option value="masculino">Masculino</option>
+				</select>
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+			  <label for="email">E-mail</label>
+			  <div class="icone-input">
+				<input type="email" id="email" name="email" placeholder="ex: elonmusk@mars.com">
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+			  <label for="telefone">Telefone</label>
+			  <div class="icone-input">
+				<input type="tel" id="telefone" name="telefone" placeholder="ex: (99) 99999-9999">
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+			  <label for="data-entrada">Data de Entrada</label>
+			  <div class="icone-input">
+				<input type="date" id="data-entrada" name="data-entrada" placeholder="Digite a data de entrada">
+			  </div>
+			</div>
+			
+			<button id="cadastrar-medico" type="submit">Cadastrar</button>
+		  </form>
+		</div><!--modal-conteudo-->
+	  </div><!--novo-medico-->
+
+	  <div id="nova-clinica" class="modal">
+		<div class="modal-conteudo">
+		  <h1>Adicione uma Nova Clínica</h1>
+		  <button id="fechar-modal-nova-clinica" class="fechar-modal">X</button>
+
+
+		  <form>
+
+			<div class="campo-formulario">
+				<label for="nome">Código</label>
+				<div class="icone-input">
+				  <input type="number" id="codigo" name="codigo" placeholder="ex: 10001">
+				</div>
+			  </div>
+
+			<div class="campo-formulario">
+			  <label for="nome">Nome da Clínica</label>
+			  <div class="icone-input">
+				<input type="text" id="nome" name="nome" placeholder="ex: Rodrigo">
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+				<label for="nome">Endereço</label>
+				<div class="icone-input">
+				  <input type="text" id="endereco" name="endereco" placeholder="ex: Av. teste, n° 1">
+				</div>
+			  </div>
+			
+			<div class="campo-formulario">
+			  <label for="email">E-mail</label>
+			  <div class="icone-input">
+				<input type="email" id="email" name="email" placeholder="ex: elonmusk@mars.com">
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+			  <label for="telefone">Telefone</label>
+			  <div class="icone-input">
+				<input type="tel" id="telefone" name="telefone" placeholder="ex: (99) 99999-9999">
+			  </div>
+			</div>
+			
+			<button id="cadastrar-clinica" type="submit">Cadastrar</button>
+		  </form>
+		</div><!--modal-conteudo-->
+	  </div><!--nova-clinica-->
+
 	<footer>
 		<p>Feito com <i class="icon-heart"></i> por SMD</p>
 	</footer>
 
-	<script type="text/javascript">
-
-		function alternarElementoAtivo(event) {
-			const elementoClicado = event.target;
-			const elementos = document.querySelectorAll('[id^="link"]');
-
-			elementos.forEach((elemento) => {
-				if (elemento === elementoClicado) {
-				elemento.classList.add('active');
-				} else {
-				elemento.classList.remove('active');
-				}
-			});
-
-			const secoes = document.querySelectorAll('section');
-
-			secoes.forEach((secao) => {
-				if (secao.id === elementoClicado.id.replace('link', 'secao')) {
-				secao.classList.add('ativa');
-				} else {
-				secao.classList.remove('ativa');
-				}
-			});
-			}
-
-			const elementos = document.querySelectorAll('[id^="link"]');
-			elementos.forEach((elemento) => {
-			elemento.addEventListener('click', alternarElementoAtivo);
-		});
-	</script>
+	<script src="./js/index.js"></script>
 
 
 </body>

@@ -2,7 +2,7 @@
 	margin:0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Roboto";
+	font-family: 'Montserrat', sans-serif;
 }
 
 .center{
@@ -16,27 +16,39 @@
 
 .menu{
 	display: flex;
-	justify-content: end;
+	justify-content: space-between;
 	align-items: center;
 	background-color: #bea877;
 	width: 100%;
 	height: 80px;
 }
 
-.menu a{
+#logo{
+	margin-left: 10%;
+}
+
+#logo h2{
+	font-weight: bold;
+}
+
+.menu button{
+	font-size: 16px;
 	margin:0 30px;
 	text-decoration: none;
 	color: #000000;
 	padding: 10px 20px;
+	background-color: #bea877;
+	border: 0;
+	cursor: pointer;
 }
 
-.menu a.active{
-	background-color: #f6d568;
-	border-radius: 50px;
-}
-
-.menu a:hover{
+.menu button:hover{
 	color: #535b6c;
+}
+
+.menu button.active{
+	background-color: #F9D564;
+	border-radius: 50px;
 }
 
 section{
@@ -55,10 +67,25 @@ section.ativa{
 
 #Sections a.new{
 	text-decoration: none;
-	background-color: #f6d568;
+	background-color: #F9D564;
 	padding: 10px 20px;
 	border-radius: 6px;
 	color: #000000;
+}
+
+#Sections button.new{
+	font-size: 16px;
+	text-decoration: none;
+	background-color: #F9D564;
+	padding: 10px 20px;
+	border-radius: 6px;
+	color: #000000;
+	border: 0;
+	cursor: pointer;
+}
+
+#Sections button.new:hover{
+	color: #535b6c;
 }
 
 #Sections a.new:hover{
@@ -66,7 +93,7 @@ section.ativa{
 }
 
 .divider {
-	border-top: 1px solid #ccc;
+	border-top: 1px solid #E5E5E5;
 	margin: 20px 0;
 }
 
@@ -88,15 +115,17 @@ section.ativa{
 #top-table p{
 	flex: 1;
 	font-size: 16px;
-	color: #797979;
+	color: #ACACAC;
 	margin-right: 140px;
 }
 
 .info-line{
+	position: relative;
 	padding: 30px 1.7%;
-	background-color: #eeeced;
+	background-color: #EEEDED;
 	border-radius: 8px;
 	margin: 15px 0;
+	z-index: 2;
 }
 
 .info-line p{
@@ -105,15 +134,152 @@ section.ativa{
 	color: #000000;
 }
 
-.info-line a.icon{
+.info-line button.icon{
 	font-size: 18px;
-	color: #fad667;
+	color: #F9D564;
 	text-decoration: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
 }
 
 
 .icon:first-child{
-	margin-right: 40px;
+	margin-right: 30px;
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.info-medicos{
+	position: relative;
+	z-index: 1;
+	padding: 30px 1.7%;
+	margin-top: -21px;
+	background-color: #f9f9f9;
+	border-radius: 0px 0px 8px 8px;
+}
+
+.info-medicos p.title{
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#top-table-info-medicos,
+.info-line-medicos{
+	display: flex;
+}
+
+#top-table-info-medicos p{
+	flex: 1;
+	font-size: 16px;
+	color: #535353;
+	margin-right: 140px;
+}
+
+.info-line-medicos{
+	margin: 15px 0;
+}
+
+.info-line-medicos p{
+	flex: 1;
+}
+
+/*MODAIS*/
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.modal-conteudo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 20px;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	min-width: 500px;
+}
+.modal-conteudo h1{
+	margin-bottom: 10px;
+	
+}
+
+form{
+	width: 65%;
+}
+
+.campo-formulario {
+	margin-bottom: 10px;
+}
+  
+.campo-formulario label {
+	display: block;
+	margin-bottom: 5px;
+}
+  
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+	text-decoration: none;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #E5E5E5;
+	border-radius: 24px;
+	
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus{
+	outline: 0;
+}
+  
+button[type="submit"] {
+	font-size: 16px;
+	display: block;
+	margin: 0 auto;
+	padding: 10px 40px;
+	background-color: #F9D564;
+	color: black;
+	border: none;
+	border-radius: 24px;
+	cursor: pointer;
+	margin-top: 40px;
+}
+
+.fechar-modal{
+	font-size: 16px;
+	font-weight: bold;
+	border: 0;
+	text-decoration: none;
+	background-color: white;
+	border-radius: 100px;
+	padding: 10px 15px;
+	cursor: pointer;
+	position: absolute;
+	top: 0px;
+	right: -50px;
+	
 }
 
 footer{
