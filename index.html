@@ -57,32 +57,8 @@
 						<p>7305477760</p>
 						<p>20h</p>
 						<div id="icons">
-							<button class="icon"><i class="icon-pencil"></i></button>
-							<button class="icon"><i class="icon-trash"></i></button>
-						</div><!--icons-->
-					</div><!--info-line-->
-
-					<div class="info-line">
-						<p>Rodrigo</p>
-						<p>Masculino</p>
-						<p>rodrigo@gmail.com</p>
-						<p>7305477760</p>
-						<p>20h</p>
-						<div id="icons">
-							<button class="icon"><i class="icon-pencil"></i></button>
-							<button class="icon"><i class="icon-trash"></i></button>
-						</div><!--icons-->
-					</div><!--info-line-->
-				
-
-					<div class="info-line">
-						<p>Rodrigo</p>
-						<p>Masculino</p>
-						<p>rodrigo@gmail.com</p>
-						<p>7305477760</p>
-						<p>20h</p>
-						<div id="icons">
-							<button class="icon"><i class="icon-pencil"></i></button>
+							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO OBJETO-->
+							<button id="abrir-modal-editar-medico" onclick="setInfoMed(20008, 'Rodrigo', 'masculino', 'rodrigo@gmail.com', '7305477760', 10001, '2020-04-30', '20')" class="icon"><i class="icon-pencil"></i></button>
 							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
@@ -125,7 +101,7 @@
 						<p>Clinical@gmail.com</p>
 						<p>7305477760</p>
 						<div id="icons">
-							<button class="icon"><i class="icon-pencil"></i></button>
+							<button id="abrir-modal-editar-clinica" onclick="setInfoCli(10001, 'Clinical', '21st Martins', 'Clinical@gmail.com', '7305477760')" class="icon"><i class="icon-pencil"></i></button>
 							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
@@ -165,52 +141,6 @@
 						</div><!--info-medicos-->
 					</div><!--dropdown-content-->
 					
-					<div class="info-line" onclick="toggleDropdown(this)">
-						<p>10002</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
-						<p>7305477760</p>
-						<div id="icons">
-							<button class="icon"><i class="icon-pencil"></i></button>
-							<button class="icon"><i class="icon-trash"></i></button>
-						</div><!--icons-->
-					</div><!--info-line-->
-					<div class="dropdown-content">
-						<div class="info-medicos">
-							<p class="title">Médicos Cadastrados</p>
-							<div class="table-info-medicos">
-								<div id="top-table-info-medicos">
-									<p>Nome</p>
-									<p>Email</p>
-									<p>Telefone</p>
-									<p>Carga Horária Semanal</p>
-								</div>
-							
-								<div class="info-line-medicos">
-									<p>Rodrigo</p>
-									<p>rodrigo@gmail.com</p>
-									<p>7305477760</p>
-									<p>20h</p>
-								</div>
-
-								<div class="info-line-medicos">
-									<p>Rodrigo</p>
-									<p>rodrigo@gmail.com</p>
-									<p>7305477760</p>
-									<p>20h</p>
-								</div>
-
-								<div class="info-line-medicos">
-									<p>Rodrigo</p>
-									<p>rodrigo@gmail.com</p>
-									<p>7305477760</p>
-									<p>20h</p>
-								</div>
-							</div><!--table-info-medicos-->
-
-						</div><!--info-medicos-->
-					</div><!--dropdown-content-->
 
 				</div><!--infos-table-->
 			</div><!--table-->
@@ -226,56 +156,160 @@
 
 
 		  <form>
-			<div class="campo-formulario">
-			  <label for="nome">Nome</label>
-			  <div class="icone-input">
-				<input type="text" id="nome" name="nome" placeholder="ex: Rodrigo">
-			  </div>
-			</div>
-			
-			<div class="campo-formulario">
-			  <label for="genero">Gênero</label>
-			  <div class="icone-input">
-				<select id="genero" name="genero">
-				  <option value="">Selecione</option>
-				  <option value="feminino">Feminino</option>
-				  <option value="masculino">Masculino</option>
-				</select>
-			  </div>
-			</div>
-			
-			<div class="campo-formulario">
-			  <label for="email">E-mail</label>
-			  <div class="icone-input">
-				<input type="email" id="email" name="email" placeholder="ex: elonmusk@mars.com">
-			  </div>
-			</div>
-			
-			<div class="campo-formulario">
-			  <label for="telefone">Telefone</label>
-			  <div class="icone-input">
-				<input type="tel" id="telefone" name="telefone" placeholder="ex: (99) 99999-9999">
-			  </div>
-			</div>
+			<div class="doubleLine">
+				<div class="campo-formulario">
+					<label for="nome">Código do Médico</label>
+					<div class="icone-input">
+					<input type="number" id="codMedico" name="codMedico" placeholder="ex: 20001">
+					</div>
+				</div>
 
-			<div class="campo-formulario">
-				<label for="nome">Código da Clínica</label>
+				<div class="campo-formulario">
+				<label for="nome">Nome</label>
 				<div class="icone-input">
-				  <input type="number" id="codigo" name="codigo" min="0" placeholder="ex: 10001">
+					<input type="text" id="nome" name="nome" placeholder="ex: Rodrigo">
+				</div>
 				</div>
 			</div>
 			
-			<div class="campo-formulario">
-			  <label for="data-entrada">Data de Entrada</label>
-			  <div class="icone-input">
-				<input type="date" id="data-entrada" name="data-entrada" placeholder="Digite a data de entrada">
-			  </div>
+			<div class="doubleLine">
+				<div class="campo-formulario">
+				<label for="genero">Gênero</label>
+				<div class="icone-input">
+					<select id="genero" name="genero">
+					<option value="">Selecione</option>
+					<option value="F">Feminino</option>
+					<option value="M">Masculino</option>
+					</select>
+				</div>
+				</div>
+			
+			
+				<div class="campo-formulario">
+				<label for="email">E-mail</label>
+				<div class="icone-input">
+					<input type="email" id="email" name="email" placeholder="ex: elonmusk@mars.com">
+				</div>
+				</div>
+			</div>
+			
+			<div class="doubleLine">
+				<div class="campo-formulario">
+				<label for="telefone">Telefone</label>
+				<div class="icone-input">
+					<input type="tel" id="telefone" name="telefone" placeholder="ex: (99) 99999-9999">
+				</div>
+				</div>
+
+				<div class="campo-formulario">
+					<label for="nome">Código da Clínica</label>
+					<div class="icone-input">
+					<input type="number" id="codigo" name="codigo" min="0" placeholder="ex: 10001">
+					</div>
+				</div>
+			</div>
+
+			<div class="doubleLine">
+				<div class="campo-formulario">
+				<label for="data-entrada">Data de Entrada</label>
+				<div class="icone-input">
+					<input type="date" id="data-entrada" name="data-entrada" placeholder="Digite a data de entrada">
+				</div>
+				</div>
+
+				<div class="campo-formulario">
+					<label for="nome">Carga Horária Semanal</label>
+					<div class="icone-input">
+					<input type="number" id="cargaHoraria" name="cargaHoraria" placeholder="ex: 20">
+					</div>
+				</div>
 			</div>
 			
 			<button id="cadastrar-medico" type="submit">Cadastrar</button>
 		  </form>
 		</div><!--modal-conteudo-->
 	  </div><!--novo-medico-->
+
+	  <div id="editar-medico" class="modal">
+		<div class="modal-conteudo">
+		  <h1>Editar Médico</h1>
+		  <button id="fechar-modal-editar-medico" class="fechar-modal">X</button>
+
+
+		  <form>
+			<div class="doubleLine">
+				<div class="campo-formulario">
+					<label for="nome">Código do Médico</label>
+					<div class="icone-input">
+					<input type="number" id="editCodMedico" name="editCodMedico" placeholder="ex: 20001" readonly>
+					</div>
+				</div>
+
+				<div class="campo-formulario">
+				<label for="nome">Nome</label>
+				<div class="icone-input">
+					<input type="text" id="editNomeMed" name="editNomeMed" placeholder="ex: Rodrigo">
+				</div>
+				</div>
+			</div>
+			
+			<div class="doubleLine">
+				<div class="campo-formulario">
+				<label for="genero">Gênero</label>
+				<div class="icone-input">
+					<select id="editGenero" name="editGenero">
+					<option value="">Selecione</option>
+					<option value="feminino">Feminino</option>
+					<option value="masculino">Masculino</option>
+					</select>
+				</div>
+				</div>
+			
+			
+				<div class="campo-formulario">
+				<label for="email">E-mail</label>
+				<div class="icone-input">
+					<input type="email" id="editEmailMed" name="editEmailMed" placeholder="ex: elonmusk@mars.com">
+				</div>
+				</div>
+			</div>
+			
+			<div class="doubleLine">
+				<div class="campo-formulario">
+				<label for="telefone">Telefone</label>
+				<div class="icone-input">
+					<input type="tel" id="editTelefoneMed" name="editTelefoneMed" placeholder="ex: (99) 99999-9999">
+				</div>
+				</div>
+
+				<div class="campo-formulario">
+					<label for="nome">Código da Clínica</label>
+					<div class="icone-input">
+					<input type="number" id="editCodigoCliMed" name="editCodigoCliMed" min="0" placeholder="ex: 10001">
+					</div>
+				</div>
+			</div>
+
+			<div class="doubleLine">
+				<div class="campo-formulario">
+				<label for="data-entrada">Data de Entrada</label>
+				<div class="icone-input">
+					<input type="date" id="editData-entradaMed" name="editData-entradaMed" placeholder="Digite a data de entrada">
+				</div>
+				</div>
+
+				<div class="campo-formulario">
+					<label for="nome">Carga Horária Semanal</label>
+					<div class="icone-input">
+					<input type="number" id="editCargaHorariaMed" name="editCargaHorariaMed" placeholder="ex: 20">
+					</div>
+				</div>
+			</div>
+			
+			<button id="editar-medico" type="submit">Editar</button>
+		  </form>
+		</div><!--modal-conteudo-->
+	  </div><!--editar-medico-->
 
 	  <div id="nova-clinica" class="modal">
 		<div class="modal-conteudo">
@@ -324,6 +358,54 @@
 		  </form>
 		</div><!--modal-conteudo-->
 	  </div><!--nova-clinica-->
+
+	  <div id="editar-clinica" class="modal">
+		<div class="modal-conteudo">
+		  <h1>Editar Clínica</h1>
+		  <button id="fechar-modal-editar-clinica" class="fechar-modal">X</button>
+
+
+		  <form>
+
+			<div class="campo-formulario">
+				<label for="nome">Código</label>
+				<div class="icone-input">
+				  <input type="number" id="editCodCli" name="editCodCli" placeholder="ex: 10001" readonly>
+				</div>
+			  </div>
+
+			<div class="campo-formulario">
+			  <label for="nome">Nome da Clínica</label>
+			  <div class="icone-input">
+				<input type="text" id="editNomeCli" name="editNomeCli" placeholder="ex: Rodrigo">
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+				<label for="nome">Endereço</label>
+				<div class="icone-input">
+				  <input type="text" id="editEnderecoCli" name="editEnderecoCli" placeholder="ex: Av. teste, n° 1">
+				</div>
+			  </div>
+			
+			<div class="campo-formulario">
+			  <label for="email">E-mail</label>
+			  <div class="icone-input">
+				<input type="email" id="editEmailCli" name="editEmailCli" placeholder="ex: elonmusk@mars.com">
+			  </div>
+			</div>
+			
+			<div class="campo-formulario">
+			  <label for="telefone">Telefone</label>
+			  <div class="icone-input">
+				<input type="tel" id="editTelefoneCli" name="editTelefoneCli" placeholder="ex: (99) 99999-9999">
+			  </div>
+			</div>
+			
+			<button id="editar-clinica" type="submit">Editar</button>
+		  </form>
+		</div><!--modal-conteudo-->
+	  </div><!--editar-clinica-->
 
 	<footer>
 		<p>Feito com <i class="icon-heart"></i> por SMD</p>
