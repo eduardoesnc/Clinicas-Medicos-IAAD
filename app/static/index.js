@@ -42,6 +42,10 @@ const abrirModalEditarClinica = document.getElementById("abrir-modal-editar-clin
 const fecharModalEditarClinica = document.getElementById("fechar-modal-editar-clinica");
 const modalEditarClinica = document.getElementById("editar-clinica");
 
+const abrirModalClinicaMedico = document.getElementById("abrir-modal-clinica-medico");
+const fecharModalClinicaMedico = document.getElementById("fechar-modal-clinica-medico");
+const modalClinicaMedico = document.getElementById("clinica-medico");
+
 abrirModalNovaClinica.addEventListener("click", function() {
     modalNovaClinica.style.display = "block";
 });
@@ -58,6 +62,10 @@ abrirModalEditarClinica.addEventListener("click", function() {
     modalEditarClinica.style.display = "block";
 });
 
+abrirModalClinicaMedico.addEventListener("click", function() {
+    modalClinicaMedico.style.display = "block";
+});
+
 fecharModalEditarMedico.addEventListener("click", function() {
     modalEditarMedico.style.display = "none";
 });
@@ -72,6 +80,10 @@ fecharModalNovaClinica.addEventListener("click", function() {
 
 fecharModalEditarClinica.addEventListener("click", function() {
     modalEditarClinica.style.display = "none";
+});
+
+fecharModalClinicaMedico.addEventListener("click", function() {
+    modalClinicaMedico.style.display = "none";
 });
 
 
@@ -92,6 +104,12 @@ function setInfoCli(codCli, nomeCli, endCli, emailCli, telCli) {
     document.getElementById('editEnderecoCli').value = endCli;
     document.getElementById('editEmailCli').value = emailCli;
     document.getElementById('editTelefoneCli').value = telCli;
+}
+
+function setInfoCliMed(codMed, nomeMed) {
+    document.getElementById('codMed-CliMed').value = codMed;
+    document.getElementById('nomeMed-CliMed').value = nomeMed;
+
 }
 
 function toggleDropdown(item) {
