@@ -109,14 +109,18 @@ section.ativa{
 }
 
 #top-table{
-	padding: 15px 1.55%;
+	padding: 30px 1.55%;
 }
 
 #top-table p{
 	flex: 1;
 	font-size: 16px;
 	color: #ACACAC;
-	margin-right: 138px;
+	margin-right: 108px;
+}
+
+#top-table p:last-child{
+	margin-right: 0px !important;
 }
 
 .info-line{
@@ -134,19 +138,37 @@ section.ativa{
 	color: #000000;
 }
 
-.info-line button.icon{
+.info-line button.icon, .info-line button.iconMed{
 	font-size: 18px;
 	color: #F9D564;
 	text-decoration: none;
 	border: 0;
 	padding: 0;
 	cursor: pointer;
+	position: relative;
+
 }
 
+.icon{
+	padding: 0;
+}
 
 .icon:first-child{
-	margin-right: 30px;
+	margin-right: 40px;
 }
+
+.iconMed{
+	padding: 0;
+}
+
+.iconMed:first-child{
+	margin-right: 15px;
+}
+
+.iconMed:last-child{
+	margin-left: 15px;
+}
+
 
 .dropdown-content {
     display: none;
@@ -291,6 +313,15 @@ button[type="submit"] {
 
 .doubleLine .campo-formulario{
 	width: 175px;
+}
+
+input[type="checkbox"],
+label {
+  display: inline-block !important;
+}
+
+.checkbox{
+	margin-bottom: 10px;
 }
 
 footer{

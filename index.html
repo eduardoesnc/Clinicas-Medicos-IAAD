@@ -40,26 +40,27 @@
 
 			<div class="table">
 				<div id="top-table">
+					<p>Código</p>
 					<p>Nome</p>
 					<p>Gênero</p>
 					<p>Email</p>
 					<p>Telefone</p>
-					<p>Carga Horária Semanal</p>
-					<p style="color:white;">Ações</p>
+					<p style="color:white;">.Ações..</p>
 				</div>
 				<div id="infos-table">
 
 					<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
 					<div class="info-line">
+						<p>20008</p>
 						<p>Rodrigo</p>
 						<p>Masculino</p>
 						<p>rodrigo@gmail.com</p>
 						<p>7305477760</p>
-						<p>20h</p>
 						<div id="icons">
-							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO OBJETO-->
-							<button id="abrir-modal-editar-medico" onclick="setInfoMed(20008, 'Rodrigo', 'masculino', 'rodrigo@gmail.com', '7305477760', 10001, '2020-04-30', '20')" class="icon"><i class="icon-pencil"></i></button>
-							<button class="icon"><i class="icon-trash"></i></button>
+							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO BANCO-->
+							<button id="abrir-modal-clinica-medico" onclick="setInfoCliMed(20008, 'Rodrigo')" class="iconMed"><i class="icon-hospital"></i></button>
+							<button id="abrir-modal-editar-medico" onclick="setInfoMed(20008, 'Rodrigo', 'masculino', 'rodrigo@gmail.com', '7305477760', 10001, '2020-04-30', '20')" class="iconMed"><i class="icon-pencil"></i></button>
+							<button class="iconMed"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
 					
@@ -101,10 +102,12 @@
 						<p>Clinical@gmail.com</p>
 						<p>7305477760</p>
 						<div id="icons">
+							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO BANCO-->
 							<button id="abrir-modal-editar-clinica" onclick="setInfoCli(10001, 'Clinical', '21st Martins', 'Clinical@gmail.com', '7305477760')" class="icon"><i class="icon-pencil"></i></button>
 							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
+
 					<div class="dropdown-content">
 						<div class="info-medicos">
 							<p class="title">Médicos Cadastrados</p>
@@ -114,13 +117,16 @@
 									<p>Email</p>
 									<p>Telefone</p>
 									<p>Data de Entrada</p>
+									<p>Carga Horária Semanal</p>
 								</div>
-							
+
+								<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
 								<div class="info-line-medicos">
 									<p>Rodrigo</p>
 									<p>rodrigo@gmail.com</p>
 									<p>7305477760</p>
 									<p>10/01/2001</p>
+									<p>20h</p>
 								</div>
 
 								<div class="info-line-medicos">
@@ -128,6 +134,7 @@
 									<p>rodrigo@gmail.com</p>
 									<p>7305477760</p>
 									<p>10/01/2001</p>
+									<p>20h</p>
 								</div>
 
 								<div class="info-line-medicos">
@@ -135,6 +142,7 @@
 									<p>rodrigo@gmail.com</p>
 									<p>7305477760</p>
 									<p>10/01/2001</p>
+									<p>20h</p>
 								</div>
 							</div><!--table-info-medicos-->
 
@@ -155,7 +163,7 @@
 		  <button id="fechar-modal-novo-medico" class="fechar-modal">X</button>
 
 
-		  <form>
+		  <form action="./teste.nsei">
 			<div class="doubleLine">
 				<div class="campo-formulario">
 					<label for="nome">Código do Médico</label>
@@ -183,47 +191,22 @@
 					</select>
 				</div>
 				</div>
-			
-			
+				
 				<div class="campo-formulario">
+					<label for="telefone">Telefone</label>
+					<div class="icone-input">
+						<input type="tel" id="telefone" name="telefone" placeholder="ex: (99) 99999-9999">
+					</div>
+				</div>
+			</div>
+			
+			<div class="campo-formulario">
 				<label for="email">E-mail</label>
 				<div class="icone-input">
 					<input type="email" id="email" name="email" placeholder="ex: elonmusk@mars.com">
 				</div>
-				</div>
-			</div>
-			
-			<div class="doubleLine">
-				<div class="campo-formulario">
-				<label for="telefone">Telefone</label>
-				<div class="icone-input">
-					<input type="tel" id="telefone" name="telefone" placeholder="ex: (99) 99999-9999">
-				</div>
-				</div>
-
-				<div class="campo-formulario">
-					<label for="nome">Código da Clínica</label>
-					<div class="icone-input">
-					<input type="number" id="codigo" name="codigo" min="0" placeholder="ex: 10001">
-					</div>
-				</div>
 			</div>
 
-			<div class="doubleLine">
-				<div class="campo-formulario">
-				<label for="data-entrada">Data de Entrada</label>
-				<div class="icone-input">
-					<input type="date" id="data-entrada" name="data-entrada" placeholder="Digite a data de entrada">
-				</div>
-				</div>
-
-				<div class="campo-formulario">
-					<label for="nome">Carga Horária Semanal</label>
-					<div class="icone-input">
-					<input type="number" id="cargaHoraria" name="cargaHoraria" placeholder="ex: 20">
-					</div>
-				</div>
-			</div>
 			
 			<button id="cadastrar-medico" type="submit">Cadastrar</button>
 		  </form>
@@ -236,7 +219,7 @@
 		  <button id="fechar-modal-editar-medico" class="fechar-modal">X</button>
 
 
-		  <form>
+		  <form action="./teste.nsei">
 			<div class="doubleLine">
 				<div class="campo-formulario">
 					<label for="nome">Código do Médico</label>
@@ -265,46 +248,22 @@
 				</div>
 				</div>
 			
-			
 				<div class="campo-formulario">
+					<label for="telefone">Telefone</label>
+					<div class="icone-input">
+						<input type="tel" id="editTelefoneMed" name="editTelefoneMed" placeholder="ex: (99) 99999-9999">
+					</div>
+				</div>
+			
+			</div>
+
+			<div class="campo-formulario">
 				<label for="email">E-mail</label>
 				<div class="icone-input">
 					<input type="email" id="editEmailMed" name="editEmailMed" placeholder="ex: elonmusk@mars.com">
 				</div>
-				</div>
 			</div>
 			
-			<div class="doubleLine">
-				<div class="campo-formulario">
-				<label for="telefone">Telefone</label>
-				<div class="icone-input">
-					<input type="tel" id="editTelefoneMed" name="editTelefoneMed" placeholder="ex: (99) 99999-9999">
-				</div>
-				</div>
-
-				<div class="campo-formulario">
-					<label for="nome">Código da Clínica</label>
-					<div class="icone-input">
-					<input type="number" id="editCodigoCliMed" name="editCodigoCliMed" min="0" placeholder="ex: 10001">
-					</div>
-				</div>
-			</div>
-
-			<div class="doubleLine">
-				<div class="campo-formulario">
-				<label for="data-entrada">Data de Entrada</label>
-				<div class="icone-input">
-					<input type="date" id="editData-entradaMed" name="editData-entradaMed" placeholder="Digite a data de entrada">
-				</div>
-				</div>
-
-				<div class="campo-formulario">
-					<label for="nome">Carga Horária Semanal</label>
-					<div class="icone-input">
-					<input type="number" id="editCargaHorariaMed" name="editCargaHorariaMed" placeholder="ex: 20">
-					</div>
-				</div>
-			</div>
 			
 			<button id="editar-medico" type="submit">Editar</button>
 		  </form>
@@ -317,7 +276,7 @@
 		  <button id="fechar-modal-nova-clinica" class="fechar-modal">X</button>
 
 
-		  <form>
+		  <form action="./teste.nsei">
 
 			<div class="campo-formulario">
 				<label for="nome">Código</label>
@@ -365,7 +324,7 @@
 		  <button id="fechar-modal-editar-clinica" class="fechar-modal">X</button>
 
 
-		  <form>
+		  <form action="./teste.nsei">
 
 			<div class="campo-formulario">
 				<label for="nome">Código</label>
@@ -407,6 +366,69 @@
 		</div><!--modal-conteudo-->
 	  </div><!--editar-clinica-->
 
+	  <div id="clinica-medico" class="modal">
+		<div class="modal-conteudo">
+		  <h1>Adicionar Médico na clínica</h1>
+		  <button id="fechar-modal-clinica-medico" class="fechar-modal">X</button>
+
+
+		  <form action="./teste.nsei">
+			
+			<div class="doubleLine">
+				<div class="campo-formulario">
+					<label for="nome">Código do Médico</label>
+					<div class="icone-input">
+					<input type="number" id="codMed-CliMed" name="codMed-CliMed" placeholder="ex: 20001" readonly>
+					</div>
+				</div>
+
+				<div class="campo-formulario">
+				<label for="nome">Nome do Médico</label>
+				<div class="icone-input">
+					<input type="text" id="nomeMed-CliMed" name="nomeMed-CliMed" placeholder="ex: Rodrigo" readonly>
+				</div>
+				</div>
+			</div>
+
+			<div class="doubleLine">
+
+				<div class="campo-formulario">
+					<label for="data-entrada">Data de Entrada</label>
+					<div class="icone-input">
+						<input type="date" id="editData-entradaMed" name="editData-entradaMed" placeholder="Digite a data de entrada">
+					</div>
+				</div>
+
+				<div class="campo-formulario">
+					<label for="nome">Carga Horária Semanal</label>
+					<div class="icone-input">
+					<input type="number" id="editCargaHorariaMed" name="editCargaHorariaMed" placeholder="ex: 20">
+					</div>
+				</div>
+
+			</div>
+			
+			<h5>Clínicas Disponíveis</h5><br>
+				<!-- Dentro do ID, do VAlUE e do FOR (label) tem q passar o código de cada clínica e no label colocar o nome da clinica, pelo oq eu vi vcs usavam db.codCli dentro do for algo assim -->
+				<!-- Teria que dar um jeito de fazer a persistência pra caso ele já esteja na clínica o checkbox já ficar marcado por exemplo:
+				Se existe a relação então mostra isso: 
+				-->
+				<div class="campo-formulario">
+					<input type="checkbox" class="checkbox" id="Cli1" value="Cli1" checked>
+					<label for="Cli1">Colocar Nome da Clínica</label> <br>
+				</div>
+				<!-- Se não existe a relação então mostra esse: (A DIFERENÇA É O CHECKED NO FINAL DA TAG)-->
+				<div class="campo-formulario">
+					<input type="checkbox" class="checkbox" id="Cli2" value="Cli2">
+					<label for="Cli2">Colocar Nome da Clínica</label> <br>
+				</div>	
+
+			
+			<button id="enviar-clinica-medico" type="submit">Adicionar</button>
+		  </form>
+		</div><!--modal-conteudo-->
+	  </div><!--clinica-medico-->
+	  
 	<footer>
 		<p>Feito com <i class="icon-heart"></i> por SMD</p>
 	</footer>
