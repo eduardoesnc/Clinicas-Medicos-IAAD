@@ -6,11 +6,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 def home(request):
     data = {}
-    search = request.GET.get('search')
-    if search:
-        data['db'] = Medico.objects.filter(modelo__icontains=search)
-    else:
-        data['db'] = Medico.objects.all()
+    data['db'] = Medico.objects.all()
     return render(request, 'index.html', data)
 
 def form(request):
