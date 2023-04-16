@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,13 +53,14 @@
 					<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
 					{% for dbs in db %}
 					<div class="info-line">
+						<p>{{dbs.CodMed}}</p>
 						<p>{{dbs.NomeMed}}</p>
 						<p>{{dbs.Genero}}</p>
 						<p>{{dbs.Email}}</p>
 						<p>{{dbs.Telefone}}</p>
-						<p>20h</p>
 						<div id="icons">
 							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO OBJETO-->
+							<button id="abrir-modal-clinica-medico" onclick="setInfoCliMed(20008, 'Rodrigo')" class="iconMed"><i class="icon-hospital"></i></button>
 							<button id="abrir-modal-editar-medico" onclick="setInfoMed(20008, 'Rodrigo', 'masculino', 'rodrigo@gmail.com', '7305477760', 10001, '2020-04-30', '20')" class="icon"><i class="icon-pencil"></i></button>
 
 							<a href="/delete/{{dbs.CodMed}}/">
@@ -107,10 +109,12 @@
 						<p>Clinical@gmail.com</p>
 						<p>7305477760</p>
 						<div id="icons">
+							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO BANCO-->
 							<button id="abrir-modal-editar-clinica" onclick="setInfoCli(10001, 'Clinical', '21st Martins', 'Clinical@gmail.com', '7305477760')" class="icon"><i class="icon-pencil"></i></button>
 							<button class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
+
 					<div class="dropdown-content">
 						<div class="info-medicos">
 							<p class="title">Médicos Cadastrados</p>
@@ -122,12 +126,14 @@
 									<p>Data de Entrada</p>
 									<p>Carga Horária Semanal</p>
 								</div>
-							
+
+								<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
 								<div class="info-line-medicos">
 									<p>Rodrigo</p>
 									<p>rodrigo@gmail.com</p>
 									<p>7305477760</p>
 									<p>10/01/2001</p>
+									<p>20h</p>
 								</div>
 
 								<div class="info-line-medicos">
@@ -149,7 +155,7 @@
 
 						</div><!--info-medicos-->
 					</div><!--dropdown-content-->
-					
+
 
 				</div><!--infos-table-->
 			</div><!--table-->
@@ -180,7 +186,7 @@
 				</div>
 				</div>
 			</div>
-			
+
 			<div class="doubleLine">
 				<div class="campo-formulario">
 				<label for="genero">Gênero</label>
@@ -208,7 +214,7 @@
 				</div>
 			</div>
 
-			
+
 			<button id="cadastrar-medico" type="submit">Cadastrar</button>
 		  </form>
 		</div><!--modal-conteudo-->
@@ -236,7 +242,7 @@
 				</div>
 				</div>
 			</div>
-			
+
 			<div class="doubleLine">
 				<div class="campo-formulario">
 				<label for="genero">Gênero</label>
@@ -264,7 +270,7 @@
 					<input type="email" id="editEmailMed" name="editEmailMed" placeholder="ex: elonmusk@mars.com">
 				</div>
 			</div>
-			
+
 
 			<button id="editar-medico" type="submit">Editar</button>
 		  </form>
@@ -292,28 +298,28 @@
 				<input type="text" id="nome" name="nome" placeholder="ex: Rodrigo">
 			  </div>
 			</div>
-			
+
 			<div class="campo-formulario">
 				<label for="nome">Endereço</label>
 				<div class="icone-input">
 				  <input type="text" id="endereco" name="endereco" placeholder="ex: Av. teste, n° 1">
 				</div>
 			  </div>
-			
+
 			<div class="campo-formulario">
 			  <label for="email">E-mail</label>
 			  <div class="icone-input">
 				<input type="email" id="email" name="email" placeholder="ex: elonmusk@mars.com">
 			  </div>
 			</div>
-			
+
 			<div class="campo-formulario">
 			  <label for="telefone">Telefone</label>
 			  <div class="icone-input">
 				<input type="tel" id="telefone" name="telefone" placeholder="ex: (99) 99999-9999">
 			  </div>
 			</div>
-			
+
 			<button id="cadastrar-clinica" type="submit">Cadastrar</button>
 		  </form>
 		</div><!--modal-conteudo-->
@@ -340,28 +346,28 @@
 				<input type="text" id="editNomeCli" name="editNomeCli" placeholder="ex: Rodrigo">
 			  </div>
 			</div>
-			
+
 			<div class="campo-formulario">
 				<label for="nome">Endereço</label>
 				<div class="icone-input">
 				  <input type="text" id="editEnderecoCli" name="editEnderecoCli" placeholder="ex: Av. teste, n° 1">
 				</div>
 			  </div>
-			
+
 			<div class="campo-formulario">
 			  <label for="email">E-mail</label>
 			  <div class="icone-input">
 				<input type="email" id="editEmailCli" name="editEmailCli" placeholder="ex: elonmusk@mars.com">
 			  </div>
 			</div>
-			
+
 			<div class="campo-formulario">
 			  <label for="telefone">Telefone</label>
 			  <div class="icone-input">
 				<input type="tel" id="editTelefoneCli" name="editTelefoneCli" placeholder="ex: (99) 99999-9999">
 			  </div>
 			</div>
-			
+
 			<button id="editar-clinica" type="submit">Editar</button>
 		  </form>
 		</div><!--modal-conteudo-->

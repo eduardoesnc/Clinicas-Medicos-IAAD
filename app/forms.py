@@ -5,4 +5,4 @@ from app.models import Medico
 class MedicoForm(ModelForm):
     class Meta:
         model = Medico
-        fields = ['CodMed', 'NomeMed', 'Genero','Telefone', 'Email', 'CodEspec']
+        fields = ['CodMed', 'NomeMed', 'Genero','Telefone', 'Email',]

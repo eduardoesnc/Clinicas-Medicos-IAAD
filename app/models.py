@@ -7,5 +7,5 @@ class Medico(models.Model):
     NomeMed = models.CharField(max_length=40)
     Genero = models.CharField(max_length=1)
     Telefone = models.CharField(max_length=16)
-    Email = models.CharField(max_length=40)
-    CodEspec = models.CharField(max_length=7)
+    Email = models.CharField(max_length=40, unique=True)
+
