@@ -61,7 +61,12 @@
 						<div id="icons">
 							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO OBJETO-->
 							<button id="abrir-modal-editar-medico" onclick="setInfoMed(20008, 'Rodrigo', 'masculino', 'rodrigo@gmail.com', '7305477760', 10001, '2020-04-30', '20')" class="icon"><i class="icon-pencil"></i></button>
-							<button class="icon" onclick=""{% url 'delete' dbs.CodMed %}""><i class="icon-trash"></i></button>
+					
+							<a href="/delete/{{dbs.CodMed}}/">
+								<button class="icon"><i class="icon-trash"></i></button>
+							
+							</a>
+						
 						</div><!--icons-->
 					</div><!--info-line-->
 					{% endfor %}	
