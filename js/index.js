@@ -30,9 +30,17 @@ const abrirModalNovoMedico = document.getElementById("abrir-modal-novo-medico");
 const fecharModalNovoMedico = document.getElementById("fechar-modal-novo-medico");
 const modalNovoMedico = document.getElementById("novo-medico");
 
+const abrirModalEditarMedico = document.getElementById("abrir-modal-editar-medico");
+const fecharModalEditarMedico = document.getElementById("fechar-modal-editar-medico");
+const modalEditarMedico = document.getElementById("editar-medico");
+
 const abrirModalNovaClinica = document.getElementById("abrir-modal-nova-clinica");
 const fecharModalNovaClinica = document.getElementById("fechar-modal-nova-clinica");
 const modalNovaClinica = document.getElementById("nova-clinica");
+
+const abrirModalEditarClinica = document.getElementById("abrir-modal-editar-clinica");
+const fecharModalEditarClinica = document.getElementById("fechar-modal-editar-clinica");
+const modalEditarClinica = document.getElementById("editar-clinica");
 
 abrirModalNovaClinica.addEventListener("click", function() {
     modalNovaClinica.style.display = "block";
@@ -42,6 +50,18 @@ abrirModalNovoMedico.addEventListener("click", function() {
     modalNovoMedico.style.display = "block";
 });
 
+abrirModalEditarMedico.addEventListener("click", function() {
+    modalEditarMedico.style.display = "block";
+});
+
+abrirModalEditarClinica.addEventListener("click", function() {
+    modalEditarClinica.style.display = "block";
+});
+
+fecharModalEditarMedico.addEventListener("click", function() {
+    modalEditarMedico.style.display = "none";
+});
+
 fecharModalNovoMedico.addEventListener("click", function() {
     modalNovoMedico.style.display = "none";
 });
@@ -49,6 +69,30 @@ fecharModalNovoMedico.addEventListener("click", function() {
 fecharModalNovaClinica.addEventListener("click", function() {
     modalNovaClinica.style.display = "none";
 });
+
+fecharModalEditarClinica.addEventListener("click", function() {
+    modalEditarClinica.style.display = "none";
+});
+
+
+function setInfoMed(codMed, nomeMed, genMed, emailMed, telMed, codCliMed, dataMed, chMed) {
+    document.getElementById('editCodMedico').value = codMed;
+    document.getElementById('editNomeMed').value = nomeMed;
+    document.getElementById('editGenero').value = genMed;
+    document.getElementById('editEmailMed').value = emailMed;
+    document.getElementById('editTelefoneMed').value = telMed;
+    document.getElementById('editCodigoCliMed').value = codCliMed;
+    document.getElementById('editData-entradaMed').value = dataMed;
+    document.getElementById('editCargaHorariaMed').value = chMed;
+}
+
+function setInfoCli(codCli, nomeCli, endCli, emailCli, telCli) {
+    document.getElementById('editCodCli').value = codCli;
+    document.getElementById('editNomeCli').value = nomeCli;
+    document.getElementById('editEnderecoCli').value = endCli;
+    document.getElementById('editEmailCli').value = emailCli;
+    document.getElementById('editTelefoneCli').value = telCli;
+}
 
 function toggleDropdown(item) {
     var dropdownContent = item.nextElementSibling;

@@ -212,7 +212,7 @@ section.ativa{
 	padding: 20px;
 	border-radius: 40px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	min-width: 500px;
+	min-width: 650px;
 }
 .modal-conteudo h1{
 	margin-bottom: 10px;
@@ -228,6 +228,7 @@ form{
 }
   
 .campo-formulario label {
+	font-size: 14px;
 	display: block;
 	margin-bottom: 5px;
 }
@@ -280,6 +281,16 @@ button[type="submit"] {
 	top: 0px;
 	right: -50px;
 	
+}
+
+.doubleLine{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.doubleLine .campo-formulario{
+	width: 175px;
 }
 
 footer{
