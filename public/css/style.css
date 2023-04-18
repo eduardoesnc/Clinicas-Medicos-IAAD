@@ -138,7 +138,7 @@ section.ativa{
 	color: #000000;
 }
 
-.info-line button.icon, .info-line button.iconMed{
+.info-line button.icon, .info-line button.iconMed, .info-line a.iconMed{
 	font-size: 18px;
 	color: #F9D564;
 	text-decoration: none;

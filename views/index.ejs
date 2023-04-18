@@ -3,11 +3,10 @@
 <head>
 	<title>ClinicaMedico</title>
 	<meta charset="utf-8">
-	<link rel="icon" href="./images/icon.png">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
 	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -32,7 +31,7 @@
 			<div id="headerSections">
 
 				<h2>Médicos Disponíveis</h2>
-				<button id="abrir-modal-novo-medico" class="new">Novo Médico</button>
+				<button id="abrir-modal-novo-medico" onclick="abrirModalNovoMedico()" class="new">Novo Médico</button>
 
 			</div><!--headerSections-->
 
@@ -48,21 +47,21 @@
 					<p style="color:white;">.Ações..</p>
 				</div>
 				<div id="infos-table">
-
-					<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
+					<% for(var i=0; i<medico.length; i++) {%>
 					<div class="info-line">
-						<p>20008</p>
-						<p>Rodrigo</p>
-						<p>Masculino</p>
-						<p>rodrigo@gmail.com</p>
-						<p>7305477760</p>
+						<p><%= medico[i].CodMed %></p>
+						<p><%= medico[i].NomeMed %></p>
+						<p><%= medico[i].Genero %></p>
+						<p><%= medico[i].Email %></p>
+						<p><%= medico[i].Telefone %></p>
 						<div id="icons">
 							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO BANCO-->
-							<button id="abrir-modal-clinica-medico" onclick="setInfoCliMed(20008, 'Rodrigo')" class="iconMed"><i class="icon-hospital"></i></button>
-							<button id="abrir-modal-editar-medico" onclick="setInfoMed(20008, 'Rodrigo', 'masculino', 'rodrigo@gmail.com', '7305477760', 10001, '2020-04-30', '20')" class="iconMed"><i class="icon-pencil"></i></button>
-							<button class="iconMed"><i class="icon-trash"></i></button>
+							<button id="abrir-modal-clinica-medico" onclick="setInfoCliMed('<%= medico[i].CodMed %>', '<%= medico[i].NomeMed %>'); abrirModalClinicaMedico()" class="iconMed"><i class="icon-hospital"></i></button>
+							<button id="abrir-modal-editar-medico" onclick="setInfoMed('<%= medico[i].CodMed %>', '<%= medico[i].NomeMed %>', '<%= medico[i].Genero %>', '<%= medico[i].Email %>', '<%= medico[i].Telefone %>'); abrirModalEditarMedico()" class="iconMed"><i class="icon-pencil"></i></button>
+							<button onclick="excluirMedico('<%= medico[i].CodMed %>')" class="iconMed"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
+					<% } %>	
 					
 
 				</div><!--infos-table-->
@@ -77,7 +76,7 @@
 			<div id="headerSections">
 
 				<h2>Clínicas Disponíveis</h2>
-				<button id="abrir-modal-nova-clinica" class="new">Nova Clínica</button>
+				<button id="abrir-modal-nova-clinica" onclick="abrirModalNovaClinica()" class="new">Nova Clínica</button>
 
 			</div><!--headerSections-->
 
@@ -94,20 +93,19 @@
 				</div>
 				<div id="infos-table">
 
-					<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
+					<% for(var i=0; i<clinica.length; i++) {%>
 					<div class="info-line" onclick="toggleDropdown(this)">
-						<p>10001</p>
-						<p>Clinical</p>
-						<p>21st Martins</p>
-						<p>Clinical@gmail.com</p>
-						<p>7305477760</p>
+						<p><%= clinica[i].CodCli %></p>
+						<p><%= clinica[i].NomeCli %></p>
+						<p><%= clinica[i].Endereco %></p>
+						<p><%= clinica[i].Email %></p>
+						<p><%= clinica[i].Telefone %></p>
 						<div id="icons">
 							<!--MUDAR O PARÂMETRO QUE PASSA DENTRO DO SETIDMEDICO() PARA OQ Q TIVER SENDO PASSADO PELO BANCO-->
-							<button id="abrir-modal-editar-clinica" onclick="setInfoCli(10001, 'Clinical', '21st Martins', 'Clinical@gmail.com', '7305477760')" class="icon"><i class="icon-pencil"></i></button>
-							<button class="icon"><i class="icon-trash"></i></button>
+							<button id="abrir-modal-editar-clinica" class="icon" onclick="setInfoCli('<%= clinica[i].CodCli %>', '<%= clinica[i].NomeCli %>', '<%= clinica[i].Endereco %>', '<%= clinica[i].Email %>', '<%= clinica[i].Telefone %>'); abrirModalEditarClinica()" ><i class="icon-pencil"></i></button>
+							<button onclick="excluirClinica('<%= clinica[i].CodCli %>')" class="icon"><i class="icon-trash"></i></button>
 						</div><!--icons-->
 					</div><!--info-line-->
-
 					<div class="dropdown-content">
 						<div class="info-medicos">
 							<p class="title">Médicos Cadastrados</p>
@@ -119,36 +117,24 @@
 									<p>Data de Entrada</p>
 									<p>Carga Horária Semanal</p>
 								</div>
+								
+								<% for(var c=0; c<clinicaMedico.length; c++) {%>
+									<% if(clinica[i].CodCli == clinicaMedico[c].CodCli ){%>
+									<div class="info-line-medicos">
+										<p><%= clinicaMedico[c].NomeMed %></p>
+										<p><%= clinicaMedico[c].Email %></p>
+										<p><%= clinicaMedico[c].Telefone %></p>
+										<p><%= clinicaMedico[c].DataIngresso.toISOString().substring(0, 10) %></p>
+										<p><%= clinicaMedico[c].CargaHorariaSemanal %></p>
+									</div>
+									<% } %>	
+								<% } %>	
 
-								<!--NO PHP USARIA UM FOR EACH E TROCARIA AS INFORMAÇÕES PELAS INFORMAÇÕES DO BANCO-->
-								<div class="info-line-medicos">
-									<p>Rodrigo</p>
-									<p>rodrigo@gmail.com</p>
-									<p>7305477760</p>
-									<p>10/01/2001</p>
-									<p>20h</p>
-								</div>
-
-								<div class="info-line-medicos">
-									<p>Rodrigo</p>
-									<p>rodrigo@gmail.com</p>
-									<p>7305477760</p>
-									<p>10/01/2001</p>
-									<p>20h</p>
-								</div>
-
-								<div class="info-line-medicos">
-									<p>Rodrigo</p>
-									<p>rodrigo@gmail.com</p>
-									<p>7305477760</p>
-									<p>10/01/2001</p>
-									<p>20h</p>
-								</div>
 							</div><!--table-info-medicos-->
 
 						</div><!--info-medicos-->
 					</div><!--dropdown-content-->
-					
+					<% } %>					
 
 				</div><!--infos-table-->
 			</div><!--table-->
@@ -163,7 +149,7 @@
 		  <button id="fechar-modal-novo-medico" class="fechar-modal">X</button>
 
 
-		  <form action="./teste.nsei">
+		  <form action="/inserirMedico" method="post">
 			<div class="doubleLine">
 				<div class="campo-formulario">
 					<label for="nome">Código do Médico</label>
@@ -219,7 +205,7 @@
 		  <button id="fechar-modal-editar-medico" class="fechar-modal">X</button>
 
 
-		  <form action="./teste.nsei">
+		  <form action="./editarMedico" method="post">
 			<div class="doubleLine">
 				<div class="campo-formulario">
 					<label for="nome">Código do Médico</label>
@@ -242,8 +228,8 @@
 				<div class="icone-input">
 					<select id="editGenero" name="editGenero">
 					<option value="">Selecione</option>
-					<option value="feminino">Feminino</option>
-					<option value="masculino">Masculino</option>
+					<option value="F">Feminino</option>
+					<option value="M">Masculino</option>
 					</select>
 				</div>
 				</div>
@@ -276,7 +262,7 @@
 		  <button id="fechar-modal-nova-clinica" class="fechar-modal">X</button>
 
 
-		  <form action="./teste.nsei">
+		  <form action="/inserirClinica" method="post">
 
 			<div class="campo-formulario">
 				<label for="nome">Código</label>
@@ -288,7 +274,7 @@
 			<div class="campo-formulario">
 			  <label for="nome">Nome da Clínica</label>
 			  <div class="icone-input">
-				<input type="text" id="nome" name="nome" placeholder="ex: Rodrigo">
+				<input type="text" id="nome" name="nome" placeholder="ex: Clinica Saúde">
 			  </div>
 			</div>
 			
@@ -324,7 +310,7 @@
 		  <button id="fechar-modal-editar-clinica" class="fechar-modal">X</button>
 
 
-		  <form action="./teste.nsei">
+		  <form action="/editarClinica" method="post">
 
 			<div class="campo-formulario">
 				<label for="nome">Código</label>
@@ -372,20 +358,20 @@
 		  <button id="fechar-modal-clinica-medico" class="fechar-modal">X</button>
 
 
-		  <form action="./teste.nsei">
+		  <form action="/inserirClinicaMedico" method="post">
 			
 			<div class="doubleLine">
 				<div class="campo-formulario">
 					<label for="nome">Código do Médico</label>
 					<div class="icone-input">
-					<input type="number" id="codMed-CliMed" name="codMed-CliMed" placeholder="ex: 20001" readonly>
+					<input type="number" id="codMedCliMed" name="codMedCliMed" placeholder="ex: 20001" readonly>
 					</div>
 				</div>
 
 				<div class="campo-formulario">
 				<label for="nome">Nome do Médico</label>
 				<div class="icone-input">
-					<input type="text" id="nomeMed-CliMed" name="nomeMed-CliMed" placeholder="ex: Rodrigo" readonly>
+					<input type="text" id="nomeMedCliMed" name="nomeMedCliMed" placeholder="ex: Rodrigo" readonly>
 				</div>
 				</div>
 			</div>
@@ -395,14 +381,14 @@
 				<div class="campo-formulario">
 					<label for="data-entrada">Data de Entrada</label>
 					<div class="icone-input">
-						<input type="date" id="editData-entradaMed" name="editData-entradaMed" placeholder="Digite a data de entrada">
+						<input type="date" id="DataEntradaMed" name="DataEntradaMed" placeholder="Digite a data de entrada">
 					</div>
 				</div>
 
 				<div class="campo-formulario">
 					<label for="nome">Carga Horária Semanal</label>
 					<div class="icone-input">
-					<input type="number" id="editCargaHorariaMed" name="editCargaHorariaMed" placeholder="ex: 20">
+					<input type="number" id="CargaHorariaMed" name="CargaHorariaMed" placeholder="ex: 20">
 					</div>
 				</div>
 
@@ -413,15 +399,19 @@
 				<!-- Teria que dar um jeito de fazer a persistência pra caso ele já esteja na clínica o checkbox já ficar marcado por exemplo:
 				Se existe a relação então mostra isso: 
 				-->
+
 				<div class="campo-formulario">
-					<input type="checkbox" class="checkbox" id="Cli1" value="Cli1" checked>
-					<label for="Cli1">Colocar Nome da Clínica</label> <br>
-				</div>
-				<!-- Se não existe a relação então mostra esse: (A DIFERENÇA É O CHECKED NO FINAL DA TAG)-->
-				<div class="campo-formulario">
-					<input type="checkbox" class="checkbox" id="Cli2" value="Cli2">
-					<label for="Cli2">Colocar Nome da Clínica</label> <br>
-				</div>	
+					<div class="icone-input">
+						<select id="dispCli" name="dispCli">
+						<option value="">Selecione</option>
+						<% for(var i=0; i<clinica.length; i++) {%>
+						<option value="<%= clinica[i].CodCli %>"><%= clinica[i].NomeCli %></option>
+						<% } %>	
+						</select>
+					</div>
+					</div>
+
+
 
 			
 			<button id="enviar-clinica-medico" type="submit">Adicionar</button>
@@ -433,7 +423,33 @@
 		<p>Feito com <i class="icon-heart"></i> por SMD</p>
 	</footer>
 
-	<script src="./js/index.js"></script>
+	<script src="../js/frontJs.js"></script>
+
+	<script>
+		function excluirMedico(id) {
+		  // Fazer a solicitação DELETE para a rota /excluirRegistro/:id
+		  fetch(`/excluirRegistroMed/${id}`, { method: 'DELETE' })
+			.then(response => {
+				location.reload();
+			})
+			.catch(error => {
+			  // Lidar com erros de rede, se necessário
+			  console.error('Erro de rede:', error);
+			});
+		}
+
+		function excluirClinica(id) {
+		  // Fazer a solicitação DELETE para a rota /excluirRegistro/:id
+		  fetch(`/excluirRegistroCli/${id}`, { method: 'DELETE' })
+			.then(response => {
+				location.reload();
+			})
+			.catch(error => {
+			  // Lidar com erros de rede, se necessário
+			  console.error('Erro de rede:', error);
+			});
+		}
+		</script>
 
 
 </body>
