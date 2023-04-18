@@ -1,4 +1,6 @@
-CREATE SCHEMA clinicasmedicas;
+drop schema if exists clinicasmedicas;
+create schema clinicasmedicas;
+use clinicasmedicas;
 
 CREATE TABLE Clinica(
     CodCli CHAR(7) NOT NULL,
@@ -38,3 +40,5 @@ FOR EACH ROW
 BEGIN
 	INSERT INTO ClinicaMedico VALUES ('9999999', NEW.CodMed, now(), DEFAULT);
 END $$
+
+commit;
